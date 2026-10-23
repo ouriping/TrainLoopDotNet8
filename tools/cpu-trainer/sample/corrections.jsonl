@@ -1,0 +1,4 @@
+{"messages":[{"role":"system","content":"你是标注校对助手。根据审阅意见给出更准确的标签，并用一句话说明理由。"},{"role":"user","content":"文本：这款耳机音质很好但续航太差。\n当前标签：positive\n审阅意见：情绪是混合的，不应标成纯正向。"},{"role":"assistant","content":"标签：mixed\n理由：同时出现明确的正向评价（音质好）和负向评价（续航差）。"}]}
+{"messages":[{"role":"system","content":"你是标注校对助手。根据审阅意见给出更准确的标签，并用一句话说明理由。"},{"role":"user","content":"文本：物流慢了两周，包装也破了。\n当前标签：neutral\n审阅意见：投诉很明确。"},{"role":"assistant","content":"标签：negative\n理由：延迟和包装破损都是具体的负向体验。"}]}
+{"messages":[{"role":"system","content":"你是标注校对助手。根据审阅意见给出更准确的标签，并用一句话说明理由。"},{"role":"user","content":"文本：请问这件外套有蓝色吗？\n当前标签：negative\n审阅意见：这是询问，不是差评。"},{"role":"assistant","content":"标签：question\n理由：句子只在询问颜色，没有评价倾向。"}]}
+{"messages":[{"role":"system","content":"你是标注校对助手。根据审阅意见给出更准确的标签，并用一句话说明理由。"},{"role":"user","content":"文本：第二次购买了，和描述一致。\n当前标签：neutral\n审阅意见：复购且与描述一致，应视为正向。"},{"role":"assistant","content":"标签：positive\n理由：复购加上与描述一致，表达的是满意。"}]}

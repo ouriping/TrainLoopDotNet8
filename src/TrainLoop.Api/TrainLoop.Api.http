@@ -1,0 +1,33 @@
+@TrainLoop.Api_HostAddress = http://localhost:5231
+
+GET {{TrainLoop.Api_HostAddress}}/api/datasets
+Accept: application/json
+
+###
+
+GET {{TrainLoop.Api_HostAddress}}/api/llm/runtime
+Accept: application/json
+
+###
+
+POST {{TrainLoop.Api_HostAddress}}/api/llm/infer
+Content-Type: application/json
+
+{
+  "prompt": "用一句话说明什么是标注理由。",
+  "maxTokens": 64,
+  "temperature": 0.2
+}
+
+###
+
+POST {{TrainLoop.Api_HostAddress}}/api/llm/train/plan
+Content-Type: application/json
+
+{
+  "dryRun": true,
+  "maxSteps": 20,
+  "batchSize": 1
+}
+
+###
