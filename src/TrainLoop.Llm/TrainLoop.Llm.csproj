@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TrainLoop.Llm</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TrainLoop.Core\TrainLoop.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 0.19.0 is the newest LLamaSharp that targets net8.0 without Microsoft.Extensions.* 10.x.
+         0.20+ pulls net9/net10 extension packages. Its llama.cpp (958367bf, Nov 2024) loads Qwen2.5 GGUF. -->
+    <PackageReference Include="LLamaSharp" Version="0.19.0" />
+    <PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.19.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

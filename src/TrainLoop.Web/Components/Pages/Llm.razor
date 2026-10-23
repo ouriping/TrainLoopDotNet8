@@ -1,0 +1,35 @@
+@page "/llm"
+
+<PageTitle>Qwen CPU</PageTitle>
+
+<h1>Qwen2.5-0.5B · CPU</h1>
+
+<p>
+    推理在 API 进程内完成：LLamaSharp 0.19 加 CPU backend（llama.cpp），
+    <code>GpuLayerCount = 0</code>，不引用 CUDA 包。模型文件是官方 GGUF
+    <code>Qwen/Qwen2.5-0.5B-Instruct-GGUF</code> 的 Q4_K_M，约 469 MiB，不提交到仓库。
+</p>
+
+<p>
+    训练不在 C# 进程内进行。默认由 <code>TrainingOrchestrator</code> 启动
+    <code>tools/cpu-trainer/train_qwen_lora.py</code>（transformers + peft），
+    脚本把模型放到 <code>device=cpu</code>，并用 fp32、batch size 1 做 LoRA。
+    也可以改用同目录下的 LLaMA-Factory YAML。训练接口默认 <code>dryRun: true</code>。
+</p>
+
+<h2>推理</h2>
+<pre>bash tools/download-qwen-gguf.sh
+dotnet run --project src/TrainLoop.Api --launch-profile http
+curl -s http://localhost:5231/api/llm/infer \
+  -H 'content-type: application/json' \
+  -d '{"prompt":"用一句话说明什么是标注理由。","maxTokens":64}'</pre>
+
+<h2>训练</h2>
+<pre>pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r tools/cpu-trainer/requirements.txt
+CUDA_VISIBLE_DEVICES="" bash tools/cpu-trainer/run-cpu-train.sh</pre>
+
+<p>
+    推理加载的是基础 GGUF，不会自动加载 LoRA adapter。适配器要用
+    <code>tools/cpu-trainer/infer_peft_cpu.py</code> 在 CPU 上验证。
+</p>

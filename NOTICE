@@ -1,0 +1,25 @@
+TrainLoopDotNet8
+https://github.com/ouriping/TrainLoopDotNet8
+
+This repository is a derivative work of TrainLoop by Jerrett Davis:
+
+  https://github.com/JerrettDavis/TrainLoop
+  Upstream snapshot: 2d39a803ae627592f3a64fde2bb1dffc282b16c8 (2026-10-19)
+
+TrainLoop is licensed under the MIT License. The original copyright notice
+and permission text are preserved unchanged in the LICENSE file:
+
+  Copyright (c) 2026 Jerrett Davis
+
+Changes in this derivative, which are also distributed under the MIT License:
+
+- Retarget the solution from net10.0 to net8.0, including SDK pin and
+  NuGet packages that restore and compile on the .NET 8 SDK.
+- Add a CPU-only inference path for Qwen2.5-0.5B (LLamaSharp / llama.cpp,
+  GpuLayerCount = 0, no CUDA backend).
+- Add a CPU-only LoRA training path for Qwen2.5-0.5B. The .NET process
+  orchestrates an external Python trainer (transformers + peft by default,
+  LLaMA-Factory as an alternative). Training is not implemented in-process
+  in C#.
+
+Do not remove the upstream copyright notice when redistributing this code.

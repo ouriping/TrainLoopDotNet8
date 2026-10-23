@@ -1,0 +1,11 @@
+# Install the CPU wheel of PyTorch BEFORE this file, otherwise pip may pull a CUDA build:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r tools/cpu-trainer/requirements.txt
+#
+# If a later install replaces torch with a CUDA wheel, reinstall the CPU wheel.
+torch
+transformers>=4.46.0
+peft>=0.13.0
+accelerate>=1.0.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
